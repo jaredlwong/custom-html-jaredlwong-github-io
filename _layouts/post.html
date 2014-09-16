@@ -9,4 +9,22 @@
     <div id="post">
         {{ content }}
     </div>
+
+    {% if page.date %}
+    <div id="posted">
+        Posted: {{ page.date | date: "%A, %B %-d, %Y" }}
+    </div>
+    {% endif %}
+
+    {% if page.next %}
+    <div id="next-post">
+        Next Post: <a href="{{ page.next.url }}">{{ page.next.title }}</a>
+    </div>
+    {% endif %}
+
+    {% if page.previous %}
+    <div id="previous-post">
+        Previous Post: <a href="{{ page.previous.url }}">{{ page.previous.title }}</a>
+    </div>
+    {% endif %}
 </body>
