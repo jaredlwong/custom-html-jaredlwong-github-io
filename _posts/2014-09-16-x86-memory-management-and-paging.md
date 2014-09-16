@@ -77,7 +77,7 @@ to figure out why the performance degraded so much when `n` gets to 22. The
 test code is randomly jumping around some array and incrementing its values.
 The size of the array is `1 << n`. So this code is addressing up to 2^22 bytes.
 
-<img src="{{ site.baseurl }}/images/6172-lec11-storage-allocation.png" style="max-width: 100%; height: auto;"/>
+<img src="/images/6172-lec11-storage-allocation.png" style="max-width: 100%; height: auto;"/>
 
 We get to the conclusion that the performance degradation is most likely a
 result of tlb misses. The mmu had to go to memory and traverse the two level
