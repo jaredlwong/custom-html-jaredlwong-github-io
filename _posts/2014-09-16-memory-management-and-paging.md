@@ -1,8 +1,8 @@
 ---
 layout: post
-title: x86 Memory Management And Paging
+title: Memory Management And Paging
 ---
-x86 Memory Management And Paging
+Memory Management And Paging
 ================================
 I was first introduced to the idea of paging in 6.172, Performance Engineering.
 We had to create memory allocators tuned to specific workloads. We made use of

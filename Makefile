@@ -1,3 +1,6 @@
+rvm:
+	rvm gemset use jaredlwong
+
 install:
 	bundle install
 
@@ -9,3 +12,6 @@ serve:
 
 upload:
 	rsync --recursive --delete --verbose _site/ mit:~/Public
+
+clean:
+	rm -r _site
