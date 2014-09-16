@@ -1,0 +1,35 @@
+html {
+    font-size: 18px;
+}
+
+/* calculated using 35rem */
+@media (max-width: 660px) {
+    html { font-size: 15px; }
+}
+
+@media (max-width: 550px) {
+    html { font-size: 13px; }
+}
+
+
+#post {
+    max-width: 35rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+}
+
+h3 {
+    font-size: 2rem;
+}
+
+p {
+    font-size: 1rem;
+}
