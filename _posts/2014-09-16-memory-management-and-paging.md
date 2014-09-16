@@ -39,26 +39,26 @@ directory, page table, and page. Here is an example 32 bit virtual address:
 Here is sketch of how the page table looks:
 
               page directory
-    pgdir |  |----------------------------------|
-    index |  | phys addr of pgtbl | permissions | --
-          V  |----------------------------------|  |
-             | phys addr of pgtbl | permissions |  |
-             |----------------------------------|  |
-             | ...                              |  |
-                                                   |
-              page table                           |
-    pgtbl |  |----------------------------------| <-
-    index |  | phys addr of page  | permissions |
-          V  |----------------------------------|
-             | phys addr of page  | permissions | --
-             |----------------------------------|  |
-             | ...                              |  |
-                                                   |
-              page                                 |
-    page  |  |----------------------------------| <-
-    index |  | contiguous physical/virtual mem  |
-          V  |                                  |
-             | ...                              |
+    pgdir |  |----------------------------|
+    index |  | phys addr of pgtbl | perms | --
+          V  |----------------------------|  |
+             | phys addr of pgtbl | perms |  |
+             |----------------------------|  |
+             | ...                        |  |
+                                             |
+              page table                     |
+    pgtbl |  |----------------------------| <-
+    index |  | phys addr of page  | perms |
+          V  |----------------------------|
+             | phys addr of page  | perms | --
+             |----------------------------|  |
+             | ...                        |  |
+                                             |
+              page                           |
+    page  |  |----------------------------| <-
+    index |  | contiguous physical and    |
+          V  | and virtual mem            |
+             | ...                        |
 
 The operating system keeps a list of free pages in physical memory so that it
 can fill in the page table (page directory + page table) appropriately when it
