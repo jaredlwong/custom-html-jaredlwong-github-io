@@ -5,10 +5,10 @@ install:
 	bundle install
 
 build:
-	jekyll build --drafts
+	DEV=1 jekyll build
 
 serve:
-	jekyll serve --drafts
+	DEV=1 jekyll serve --drafts
 
 upload:
 	rsync --recursive --delete --verbose _site/ mit:~/Public
