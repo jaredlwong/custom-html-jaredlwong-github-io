@@ -56,3 +56,9 @@ pre, code {
     font-family: monospace, monospace;
     font-size: 0.8125rem;
 }
+
+pre {
+    background-color: #EEF;
+    border: 1px dashed #000;
+    padding: 8px;
+}
