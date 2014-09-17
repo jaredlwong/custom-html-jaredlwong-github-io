@@ -53,6 +53,7 @@ parent's file descriptors. The child will end up writing to the same standard
 output (stdout) as the shell. The stdout will be written out to the console.
 
 #### Outstanding Questions
+
 - What is ls doing?
 - How do the keyboard inputs get to stdin?
 - How does the stdout get to the console?
@@ -127,6 +128,7 @@ Here is some sample code from the xv6 operating system for ls:
     }
 
 #### Outstanding Questions
+
 - How do the keyboard inputs get to stdin in the shell?
 - How does the stdout get to the console?
 - Why can we just read a path as an array of directory entries?
@@ -134,6 +136,7 @@ Here is some sample code from the xv6 operating system for ls:
 
 ### Up Above: The Console
 Now we'll address two of our outstanding questions:
+
 - When the shell reads `stdin` using `fgets`, how is it getting input from the
   keyboard?
 - How does the stdout get to the console?
@@ -188,6 +191,7 @@ specific read and write functions are the drivers that actually interface with
 the hardware.
 
 #### Outstanding Questions
+
 - Why can we just read a path as an array of directory entries?
 - How does stat work?
 
