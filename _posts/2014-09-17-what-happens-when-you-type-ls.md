@@ -222,6 +222,7 @@ described in the previous section to read and write from the disk.
 This is only a brief explorating into what happens when you type `ls`. There's
 still a whole ton more that happens. Here is a non-exhaustive list of some more
 things that happen, that aren't really covered here:
+
 - How do hardware interrupts work?
 - How does a disk seek?
 - We're working with virtual addresses, how are those translated to physical
