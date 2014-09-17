@@ -20,7 +20,7 @@ a file descriptor into a buffer. It returns when either the buffer fills up or
 it reaches a newline.
 
 A file descriptor is simply an integer index into the processes file descriptor
-table. The file descriptor we pass to `fgets` will probably be `1` which
+table. The file descriptor we pass to `fgets` will probably be `0` which
 represents the standard input (stdin). In our case stdin will provide data from
 our keyboard.
 
@@ -54,7 +54,7 @@ output (stdout) as the shell. The stdout will be written out to the console.
 
 #### Outstanding Questions
 - What is ls doing?
-- How do the keyboard inputs get to stdin? What is fgets doing?
+- How do the keyboard inputs get to stdin?
 - How does the stdout get to the console?
 
 ### Deeper: Inside ls
@@ -127,7 +127,103 @@ Here is some sample code from the xv6 operating system for ls:
     }
 
 #### Outstanding Questions
-- How do the keyboard inputs get to stdin in the shell? What is fgets doing?
+- How do the keyboard inputs get to stdin in the shell?
 - How does the stdout get to the console?
 - Why can we just read a path as an array of directory entries?
 - How does stat work?
+
+### Up Above: The Console
+Now we'll address two of our outstanding questions:
+- When the shell reads `stdin` using `fgets`, how is it getting input from the
+  keyboard?
+- How does the stdout get to the console?
+
+When an operating system typically starts up it initializes an `init` process
+which hooks up some basic features. In xv6, it hooks up the console.
+
+Here is the init code from xv6:
+
+    char *argv[] = { "sh", 0 };
+
+    int
+    main(void)
+    {
+      int pid, wpid;
+
+      if(open("console", O_RDWR) < 0){
+        mknod("console", 1, 1);
+        open("console", O_RDWR);
+      }
+      dup(0);  // stdout
+      dup(0);  // stderr
+
+      for(;;){
+        printf(1, "init: starting sh\n");
+        pid = fork();
+        if(pid < 0){
+          printf(1, "init: fork failed\n");
+          exit();
+        }
+        if(pid == 0){
+          exec("sh", argv);
+          printf(1, "init: exec sh failed\n");
+          exit();
+        }
+        while((wpid=wait()) >= 0 && wpid != pid)
+          printf(1, "zombie!\n");
+      }
+    }
+
+The init code creates a special device file `console` (if it doesn't exist) and
+sets it to file descriptors 0, 1, and 2 (stdin, stdout, and stderr).
+
+All other processes are typically the child of the init process, so they all
+inherit these special file descriptors which point to the `console` device
+file.
+
+Reading and writing to the device file is just like reading and writing to any
+other file. Using the inode's major and minor device number, the operating
+system can figure out which read and write functions to call. These device
+specific read and write functions are the drivers that actually interface with
+the hardware.
+
+#### Outstanding Questions
+- Why can we just read a path as an array of directory entries?
+- How does stat work?
+
+### Down Below: The File System
+Now we'll answer our last two questions by exploring a typical *nix filesystem.
+
+First, both files and directories have an associated inode and data. An inode
+is simply the metadata for the file or directory. The data for a file is the
+file contents, however the data for a directory is the name of a file inside
+that directory and the file's corresponding inode number.
+
+The data for a directory is simply and array of directory entries.
+
+In xv6, this is the definition for a directory entry:
+
+    struct dirent {
+      ushort inum;
+      char name[DIRSIZ];
+    };
+
+As long as we know the root `/` inode of the file system, we can recursively
+traverse directory entries to find the inode for a specific file.
+
+`stat` simply looks up a path using this mechanism, and returns the inode
+information in a more presentable manner.
+
+The operating system is in charge of organizing the inodes on disk so that it
+can access them easily. The os will use the same types of device files as
+described in the previous section to read and write from the disk.
+
+### Conclusion
+This is only a brief explorating into what happens when you type `ls`. There's
+still a whole ton more that happens. Here is a non-exhaustive list of some more
+things that happen, that aren't really covered here:
+- How do hardware interrupts work?
+- How does a disk seek?
+- We're working with virtual addresses, how are those translated to physical
+  memory addresses?
+- How does the console render our output?
