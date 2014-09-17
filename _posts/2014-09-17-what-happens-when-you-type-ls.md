@@ -222,7 +222,7 @@ can access them easily. The os will use the same types of device files as
 described in the previous section to read and write from the disk.
 
 ### Conclusion
-This is only a brief explorating into what happens when you type `ls`. There's
+This is only a brief exploration into what happens when you type `ls`. There's
 still a whole ton more that happens. Here is a non-exhaustive list of some more
 things that happen, that aren't really covered here:
 
