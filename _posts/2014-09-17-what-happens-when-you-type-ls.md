@@ -195,11 +195,10 @@ the hardware.
 Now we'll answer our last two questions by exploring a typical *nix filesystem.
 
 First, both files and directories have an associated inode and data. An inode
-is simply the metadata for the file or directory. The data for a file is the
-file contents, however the data for a directory is the name of a file inside
-that directory and the file's corresponding inode number.
-
-The data for a directory is simply and array of directory entries.
+is simply the metadata for the file or directory. The data inside a file is the
+file's contents. The data for a directory is an array of directory entries.
+Each directory entry holds the name of a file inside that directory and the
+file's corresponding inode number.
 
 In xv6, this is the definition for a directory entry:
 
