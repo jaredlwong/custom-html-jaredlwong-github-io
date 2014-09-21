@@ -56,7 +56,7 @@ pre {
 }
 
 #footer {
-    width: 35rem;
+    max-width: 35rem;
     margin-left: auto;
     margin-right: auto;
     text-transform: lowercase;
