@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: default
 title: Memory Management And Paging
 description: A short introduction to memory mapping, page tables, and the
              translation lookaside buffer (tlb) in x86 computers and what

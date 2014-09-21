@@ -2,3 +2,4 @@ exclude: ["Makefile", "Gemfile", "Gemfile.lock"]
 timezone: "America/New_York"
 encoding: "utf-8"
 permalink: "/blog/:title.html"
+url: "http://www.jaredlwong.com"

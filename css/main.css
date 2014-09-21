@@ -1,7 +1,8 @@
 html { font-size: 18px; -webkit-text-size-adjust: 100%; }
 #header, #sig, #content, #footer { max-width: 35rem; margin: 0 auto; }
 #posts { list-style: none; padding-left: 0; }
-#footer { text-transform: lowercase; padding: 10px 0px 30px; }
+#posts li { text-align: center; }
+#footer { text-align: center; text-transform: lowercase; padding: 10px 0px 30px; }
 #posted { font-weight: bold; }
 #sig { display: block; }
 h1 { font-size: 2rem; margin-top: 0.5rem; }

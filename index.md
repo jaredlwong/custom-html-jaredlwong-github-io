@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: default
 canonical: http://www.jaredlwong.com
 ---
 ### Current Classes

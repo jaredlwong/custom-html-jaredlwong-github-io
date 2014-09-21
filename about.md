@@ -1,6 +1,6 @@
 ---
 title: about
-layout: post
+layout: default
 ---
 Chill guy trying to figure out how shit works.
 

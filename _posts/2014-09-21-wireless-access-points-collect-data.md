@@ -1,6 +1,6 @@
 ---
 title: Wireless Access Points Collect Data
-layout: post
+layout: default
 ---
 Wireless Access Points Collect Data
 ===================================
