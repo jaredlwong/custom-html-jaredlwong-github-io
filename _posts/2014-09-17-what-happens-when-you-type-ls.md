@@ -1,6 +1,8 @@
 ---
 layout: post
 title: What Happens When You Type ls
+description: A short overview of what happens in the operating system kernel
+             when you type the unix command ls.
 ---
 What Happens When You Type ls
 =============================

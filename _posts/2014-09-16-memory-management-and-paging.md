@@ -1,6 +1,9 @@
 ---
 layout: post
 title: Memory Management And Paging
+description: A short introduction to memory mapping, page tables, and the
+             translation lookaside buffer (tlb) in x86 computers and what
+             affects it has on code performance.
 ---
 Memory Management And Paging
 ================================
