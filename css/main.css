@@ -2,23 +2,26 @@
 ---
 
 html {
-    font-size: 24px;
+    font-size: 18px;
 }
 
-/* calculated using 35rem */
-/*
-@media (max-width: 660px) {
-    html { font-size: 15px; }
+@media only screen and (min-width: 768px) {
+    /* tablets and desktop */
+    html { font-size: 18px; }
 }
 
-@media (max-width: 550px) {
-    html { font-size: 13px; }
+@media only screen and (max-width: 767px) {
+    /* phones */
+    html { font-size: 18px; }
 }
-*/
 
+@media only screen and (max-width: 767px) and (orientation: portrait) {
+    /* portrait phones */
+    html { font-size: 18px; }
+}
 
 #post {
-    max-width: 750px; /* 38rem; */
+    max-width: 35rem; /* 41rem; * 18px */
     margin-left: auto;
     margin-right: auto;
 }
@@ -34,24 +37,16 @@ html {
 }
 
 h1 {
-    font-size: 3rem;
+    font-size: 2rem;
     margin-top: 0.5rem;
 }
 
-h2 {
-    font-size: 2.5rem;
-}
-
-h3 {
-    font-size: 2rem;
-}
-
-p {
+h2, h3, h4, div, p, li, a {
     font-size: 1rem;
 }
 
 pre, code {
-    font-size: 0.8125rem;
+    font-size: 0.8rem;
     overflow: auto;
 }
 
