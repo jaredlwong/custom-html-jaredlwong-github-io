@@ -1,63 +1,10 @@
-html {
-    font-size: 18px;
-    -webkit-text-size-adjust: 100%;
-}
-
-@media only screen and (min-width: 768px) {
-    /* tablets and desktop */
-    html { font-size: 18px; }
-}
-
-@media only screen and (max-width: 767px) {
-    /* phones */
-    html { font-size: 18px; }
-}
-
-@media only screen and (max-width: 767px) and (orientation: portrait) {
-    /* portrait phones */
-    html { font-size: 18px; }
-}
-
-#post {
-    max-width: 35rem;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-#posts {
-    list-style: none;
-    padding-left: 0;
-}
-
-#sig {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-h1 {
-    font-size: 2rem;
-    margin-top: 0.5rem;
-}
-
-h2, h3, h4, div, p, li, a {
-    font-size: 1rem;
-}
-
-pre, code {
-    font-size: 0.8rem;
-    overflow: auto;
-}
-
-pre {
-    background-color: #EEF;
-    border: 1px dashed #000;
-    padding: 8px;
-}
-
-#footer {
-    max-width: 35rem;
-    margin-left: auto;
-    margin-right: auto;
-    text-transform: lowercase;
-}
+html { font-size: 18px; -webkit-text-size-adjust: 100%; }
+#header, #sig, #content, #footer { max-width: 35rem; margin: 0 auto; }
+#posts { list-style: none; padding-left: 0; }
+#footer { text-transform: lowercase; padding: 10px 0px 30px; }
+#posted { font-weight: bold; }
+#sig { display: block; }
+h1 { font-size: 2rem; margin-top: 0.5rem; }
+h2, h3, h4, div, p, li, a { font-size: 1rem; }
+pre, code { font-size: 0.8rem; overflow: auto; }
+pre { background-color: #EEF; border: 1px dashed #000; padding: 8px; }
