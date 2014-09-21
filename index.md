@@ -1,5 +1,6 @@
 ---
 layout: post
+canonical: http://www.jaredlwong.com
 ---
 ### Current Classes
 - [6.034](https://ai6034.mit.edu/wiki/index.php?title=Main_Page)
